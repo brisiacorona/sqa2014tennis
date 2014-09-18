@@ -7,6 +7,7 @@ import app.match as m
 def given_group1_and_group2_start_a_match_to_group3_sets(step, player1, player2, sets):
     world.match = m.Match(player1, player2, sets)
 
+
 @step(u'Then: I see score: "([^"]*)"')
 def then_i_see_score_group1(step, score):
     assert world.match.score_set() == score, \
