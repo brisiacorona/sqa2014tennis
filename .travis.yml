@@ -8,4 +8,5 @@ before_script:
 # command to run tests
 script: 
   - lettuce tests/
+  - python-coverage run tests/
   - nosetests --with-doctest --with-coverage -s app
