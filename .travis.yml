@@ -1,15 +1,15 @@
 language: python
 python:
   - "2.7"
+  - "3.3"
 # command to install dependencies
-install: "pip install -r requirements.txt"
+install: "pip install -r requirements.txt", "pip install coveralls"
 before_script: 
   - "flake8 --ignore=F403,E501 app tests "
 # command to run tests
 script: 
   - lettuce tests/
-  - coverage run --source=coveralls tests/ test
-  - coverage report -m
+  - coverage run --source=tests/features steps.py
   - nosetests --with-doctest --with-coverage -s app
 after_script:
-  -coveralls --verbose
+  -coveralls
